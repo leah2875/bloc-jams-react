@@ -11,12 +11,13 @@ class Album extends Component {
 
     this.state = {
       album: album,
+      songs: album,
     };
   }
   render() {
     return (
       <section className='album'>
-        {this.props.match.params.slug} Album will go here
+        {this.props.match.params.slug}
         <section id='album-info'>
           <img
             id='album-cover-art'
@@ -30,13 +31,17 @@ class Album extends Component {
           </div>
         </section>
         <table id='song-list'>
-        {this.state.albums.songs.map((songs, index) => (
-        return (
-          <colgroup>
-            <col id='song-number-column' {this.state.album.songs.index}/>
-            <col id='song-title-column' {this.state.album.songs.title}/>
-            <col id='song-duration-column' {this.state.album.songs.duration}/>
-          </colgroup>))}
+          {this.state.album.songs.map(
+            song => {
+              console.log(song);
+            },
+            <colgroup>
+              <col id='song-number-column' />
+              <col id='song-title-column' />
+              <col id='song-duration-column' />
+            </colgroup>,
+          )}
+          }
           <tbody />
         </table>
       </section>
