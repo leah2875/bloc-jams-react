@@ -13,6 +13,7 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       isPlaying: false,
+      isHovered: false,
     };
 
     this.audioElement = document.createElement("audio");
@@ -46,6 +47,27 @@ class Album extends Component {
     }
   }
 
+  onHover(index) {
+    this.setState({ isHovered: index });
+  }
+
+  offHover() {
+    this.setState({ isHovered: false });
+  }
+
+  hoverIcon(song, index) {
+    const isSameSong = this.state.currentSong === song;
+    if (this.state.onHover === song) {
+      return <span className='icon ion-md-play' />;
+    } else if (this.state.isPlaying && isSameSong) {
+      return <span className='icon ion-md-pause' />;
+    } else if (this.state.onHover === index && !this.state.isPlaying) {
+      return <span className='icon ion-md-play' />;
+    } else {
+      return <span className='song-number'>{index + 1}</span>;
+    }
+  }
+
   render() {
     return (
       <section className='album'>
@@ -69,12 +91,14 @@ class Album extends Component {
           </colgroup>
           <tbody>
             {this.state.album.songs.map((song, index) => (
-<<<<<<< HEAD
-              <tr className='song' key={index}>
-=======
-              <tr className='song' key={index} onClick={() => this.handleSongClick(song)}>
->>>>>>> checkpoint-7-audio-playback
-                <td className='song-number'>{index + 1}</td>
+              <tr
+                className='song'
+                key={index}
+                onClick={() => this.handleSongClick(song)}
+                onMouseEnter={() => this.onHover(index)}
+                onMouseLeave={() => this.offHover()}
+              >
+                <td className='song-number'>{this.hoverIcon(index + 1)}</td>
                 <td className='song-title'>{song.title}</td>
                 <td className='song-duration'>{song.duration}</td>
               </tr>
