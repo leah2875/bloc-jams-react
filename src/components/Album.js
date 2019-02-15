@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import albumData from "./../data/albums";
+import albums from "./../data/albums";
 
 class Album extends Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class Album extends Component {
       currentSong: album.songs[0],
       isPlaying: false,
       isHovered: false,
+      iconType: albums.songs[0],
+      icon: ""
     };
 
     this.audioElement = document.createElement("audio");
@@ -109,7 +112,10 @@ class Album extends Component {
                 onMouseEnter={() => this.onHover(index)}
                 onMouseLeave={() => this.offHover()}
               >
-                <td className='song-number'>{this.hoverIcon(song, index)}</td>
+                <td>
+                  <span className={this.state.iconType === index ? /*dunno*/ : ""}>
+                  </span>
+                </td>
                 <td className='song-title'>{song.title}</td>
                 <td className='song-duration'>{song.duration}</td>
               </tr>
