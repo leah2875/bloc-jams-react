@@ -48,7 +48,7 @@ class Album extends Component {
   }
 
   onHover(index) {
-    this.setState({ isHovered: index });
+    this.setState({ isHovered: true });
   }
 
   offHover() {
@@ -57,7 +57,18 @@ class Album extends Component {
 
   hoverIcon(song, index) {
     const isSameSong = this.state.currentSong === song;
-    if (this.state.onHover === song) {
+    if (this.state.isHovered === true) {
+      return <span className='icon ion-md-play' />;
+    } else if (this.state.isPlaying && isSameSong) {
+      return <span className='icon ion-md-pause' />;
+    } else {
+      return <span className='song-number'>{index + 1}</span>;
+    }
+  }
+
+  /*hoverIcon(song, index) {
+    const isSameSong = this.state.currentSong === song;
+    if (this.state.onHover === index) {
       return <span className='icon ion-md-play' />;
     } else if (this.state.isPlaying && isSameSong) {
       return <span className='icon ion-md-pause' />;
@@ -66,7 +77,7 @@ class Album extends Component {
     } else {
       return <span className='song-number'>{index + 1}</span>;
     }
-  }
+  }*/
 
   render() {
     return (
@@ -111,3 +122,5 @@ class Album extends Component {
 }
 
 export default Album;
+
+/*<td className='song-number'>{this.hoverIcon(song, index)}</td>*/
