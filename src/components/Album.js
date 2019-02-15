@@ -98,7 +98,7 @@ class Album extends Component {
                 onMouseEnter={() => this.onHover(index)}
                 onMouseLeave={() => this.offHover()}
               >
-                <td className='song-number'>{this.hoverIcon(index + 1)}</td>
+                <td className='song-number'>{this.hoverIcon(song, index)}</td>
                 <td className='song-title'>{song.title}</td>
                 <td className='song-duration'>{song.duration}</td>
               </tr>
