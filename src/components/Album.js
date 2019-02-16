@@ -48,7 +48,7 @@ class Album extends Component {
   }
 
   onHover(index) {
-    this.setState({ isHovered: true });
+    this.setState({ isHovered: index });
   }
 
   offHover() {
@@ -57,7 +57,7 @@ class Album extends Component {
 
   hoverIcon(song, index) {
     const isSameSong = this.state.currentSong === song;
-    if (this.state.isHovered === true) {
+    if (this.state.isHovered === index) {
       return <span className='icon ion-md-play' />;
     } else if (this.state.isPlaying && isSameSong) {
       return <span className='icon ion-md-pause' />;
