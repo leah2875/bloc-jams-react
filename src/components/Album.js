@@ -109,5 +109,3 @@ class Album extends Component {
 }
 
 export default Album;
-
-/*<td className='song-number'>{this.hoverIcon(song, index)}</td>*/
