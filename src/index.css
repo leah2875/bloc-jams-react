@@ -1,14 +1,378 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background: url(components/main.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.nav-box {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: inline-block;
+  width: 300px;
+  height: 450px;
+  background-color: whitesmoke;
+  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(204, 204, 204, 0.5);
+  text-align: center;
+  position: absolute;
+  top: 16%;
+  left: 750px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+}
+
+.img-container {
+  width: 50%;
+}
+
+.img1 {
+  align-content: center;
+  position: absolute;
+  width: 270px;
+  top: 50%;
+  left: 15px;
+  opacity: 1;
+  display: block;
+  transition: 0.1s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.img1:hover .image {
+  opacity: 0.5;
+}
+
+.img1:hover .middle {
+  opacity: 0.8;
+}
+
+.img2:hover .image {
+  opacity: 0.5;
+}
+
+.img2:hover .middle {
+  opacity: 0.8;
+}
+
+.middle-text {
+  background-color: grey;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+  opacity: 1;
+  font-family: "Quicksand", sans-serif;
+}
+
+.img2 {
+  align-content: center;
+  position: absolute;
+  width: 270px;
+  bottom: 50%;
+  left: 15px;
+}
+
+library a {
+  display: inline-block;
+}
+
+.library img {
+  width: 300px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+#title {
+  text-align: center;
+  height: 15vh;
+  box-sizing: border-box;
+  color: whitesmoke;
+  font-family: "Megrim", cursive;
+  font-size: 80px;
+  font-weight: 600;
+  text-shadow: 3px 5px 8px grey;
+}
+
+#title a {
+  text-align: center;
+  text-decoration: none;
+  color: white;
+}
+
+.library a {
+  display: inline-block;
+  padding: 10px;
+  margin: 30px;
+  text-align: center;
+}
+
+.box {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  width: 300px;
+  height: 450px;
+  background-color: whitesmoke;
+  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+  background: rgba(204, 204, 204, 0.5);
+  text-align: center;
+  position: absolute;
+  top: 16%;
+  left: 350px;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.7);
+  justify-content: middle;
+}
+
+.library-page img {
+  top: 16%;
+  width: 300px;
+  text-align: center;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.7);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+}
+
+.library-page a {
+  text-align: center;
+  padding: 5px;
+  margin: 10px;
+  text-decoration: none;
+  color: whitesmoke;
+  font-family: "Quicksand", sans-serif;
+  text-shadow: 2px 3px 5px grey;
+}
+
+#album-info {
+  position: relative;
+}
+
+.album-details {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  text-shadow: 1px 1px 2px grey;
+}
+
+#album-info #song-list {
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  font-size: 25px;
+  font-family: "Quicksand", sans-serif;
+  text-shadow: 1px 1px 2px grey;
+}
+
+.song-number {
+  color: white;
+  font-size: 30px;
+  margin: 15px;
+}
+
+.song-duration {
+  margin: 15px;
+}
+
+.song-title {
+  margin: 10px;
+}
+
+.album-info a {
+  color: white;
+  text-decoration: none;
+  padding: 3px;
+  margin: 3px;
+}
+
+#buttons {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#play-pause {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  opacity: 0.5;
+  height: 40px;
+  width: 50px;
+}
+
+#play-pause:hover {
+  color: grey;
+}
+
+span.ion-md-play:before {
+  font-size: 18px;
+}
+
+span.ion-md-pause:before {
+  font-size: 18px;
+}
+
+span.ion-md-skip-forward:before {
+  font-size: 14px;
+}
+
+span.ion-md-skip-backward:before {
+  font-size: 14px;
+}
+
+#time-control {
+  text-align: center;
+}
+
+#volume-control {
+  text-align: center;
+}
+
+#next {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  opacity: 0.5;
+  height: 30px;
+}
+
+#next:hover {
+  color: grey;
+}
+
+#previous {
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid black;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s;
+  opacity: 0.5;
+  height: 30px;
+}
+
+#previous:hover {
+  color: grey;
+}
+
+.landing-content {
+  align-content: center;
+  position: absolute;
+  width: 270px;
+  margin: 0 auto;
+  top: 13%;
+  left: 15px;
+}
+
+.icon ion-md-play {
+  size: 30px;
+}
+
+.hero-title {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 30px;
+}
+
+.selling-points {
+  color: black;
+  font-family: "Quicksand", sans-serif;
+}
+
+.library-title {
+  font-family: "Ubuntu", sans-serif;
+  align-content: center;
+  position: absolute;
+  width: 270px;
+  margin: 0 auto;
+  top: 4%;
+  left: 15px;
+}
+
+#album-cover-art {
+  text-align: center;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.7);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: thin;
+  border-color: gray;
+  width: 420px;
+}
+
+.container {
+  min-height: 0%;
+  min-height: -webkit-calc(100% - 186px);
+  min-height: -moz-calc(100% - 186px);
+  min-height: calc(100% - 186px);
+  overflow: auto;
+}
+
+.footer {
+  background-color: white;
+  width: 100%;
+  text-align: center;
+}
+
+#footer-wrapper {
+  width: 100%;
+  margin: 0 auto -30px;
+}
+
+.flex-wrapper {
+  display: flex;
+  height: 82vh;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.landing {
+  font-family: Arial, Helvetica, sans-serif;
 }

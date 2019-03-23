@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./index.css";
 import { Route, Link } from "react-router-dom";
 import Landing from "./components/Landing";
 import Library from "./components/Library";
@@ -9,18 +9,27 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <header>
-          <nav>
-            <Link to='/'>Landing</Link>
-            <Link to='/library'>Library</Link>
-          </nav>
-          <h1>Bloc Jams</h1>
-        </header>
-        <main>
-          <Route exact path='/' component={Landing} />
-          <Route path='/library' component={Library} />
-          <Route path='/album/:slug' component={Album} />
-        </main>
+        <h1 id='title'>
+          <Link to='/'>Bloc Jams</Link>
+        </h1>
+        <div id='wrapper' />
+        <div className='flex-wrapper'>
+          <div className='container'>
+            <main>
+              <Route exact path='/' component={Landing} />
+              <Route path='/library' component={Library} />
+              <Route path='/album/:slug' component={Album} />
+            </main>
+          </div>
+          <div id='footer-wrapper'>
+            <div className='footer'>
+              <p>
+                {" "}
+                <img src={"headphones.png"} alt='headphones' />
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
